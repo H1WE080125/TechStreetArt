@@ -55,3 +55,25 @@ Projektet er bygget af følgende teknologier:
 - AR.js
 - p5.js
 - Geolocation API
+
+# Mappe struktur
+
+.
+└── root /
+├── pages/
+│ ├── frontpage/
+│ │ ├── frontpage.html
+│ │ ├── scripts/
+│ │ └── styles/
+│ └── gallerypage/
+│ ├── gallerypage.html
+│ ├── scripts/
+│ │ ├── gallery.js
+│ │ └── gallery.ts
+│ └── styles/
+│ ├── gallery.scss
+│ └── gallery.css
+├── .gitignore
+├── index.html
+├── README.md
+└── tsconfig.json

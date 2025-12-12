@@ -58,22 +58,5 @@ Projektet er bygget af følgende teknologier:
 
 # Mappe struktur
 
-.
-└── root /
-├── pages/
-│ ├── frontpage/
-│ │ ├── frontpage.html
-│ │ ├── scripts/
-│ │ └── styles/
-│ └── gallerypage/
-│ ├── gallerypage.html
-│ ├── scripts/
-│ │ ├── gallery.js
-│ │ └── gallery.ts
-│ └── styles/
-│ ├── gallery.scss
-│ └── gallery.css
-├── .gitignore
-├── index.html
-├── README.md
-└── tsconfig.json
+Vi arbejder med **folder based pages**. Det vil sige at hver side i projektet har sin egen mappe hvor alle tilhørende filer ligger. HTML, SCSS og TS filer samt de kompilerede CSS og JS filer.
+Alle filer der skal deles mellem de forskellige pages eks. SCSS variabler, mixins eller helper functions der bruges i flere sider, skal ligge i mappen **shared**.

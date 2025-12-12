@@ -61,7 +61,6 @@ Projektet er bygget af følgende teknologier:
 Vi arbejder med **folder based pages**. Det vil sige at hver side i projektet har sin egen mappe hvor alle tilhørende filer ligger. HTML, SCSS og TS filer samt de kompilerede CSS og JS filer.
 Alle filer der skal deles mellem de forskellige pages eks. SCSS variabler, mixins eller helper functions der bruges i flere sider, skal ligge i mappen **shared**.
 
-_mappe struktur_
 <img width="393" height="647" alt="Screenshot 2025-12-12 at 09 17 55" src="https://github.com/user-attachments/assets/0cf3a670-c2c7-43ac-9fd1-e68518df57c4" />
 
-
+_mappe struktur_

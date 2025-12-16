@@ -1,18 +1,14 @@
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .tsa-landing {
   position: relative;
   min-height: 100vh;
-  background-image: url('../images/Background-Images/aalborg-overview1.webp');
+  background-image: url("assets/landing-background.jpg");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -20,7 +16,7 @@ body{
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
-} 
+}
 
 .tsa-landing__content {
   position: relative;
@@ -33,14 +29,12 @@ body{
 .tsa-landing__title {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #ffffff;
 }
 
 .tsa-landing__text {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  color: #ffffff;
 }
 
 .tsa-landing__button {

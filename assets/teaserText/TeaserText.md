@@ -12,6 +12,6 @@ I galleriet kan du se udvalgte street art-værker og få et indblik i, hvordan t
 
 Med geo-lokation kan du opdage kunstværker i dit nærområde. Når du står på den rigtige lokation, åbnes en AR-oplevelse, hvor kunstværket folder sig ud i 3D og animation.
 
-Tag din telefon med på opdagekse og oplev, hvordan kode og kunst skaber nye fortællinger i byrummet.
+Tag din telefon med på opdagelse og oplev, hvordan kode og kunst skaber nye fortællinger i byrummet.
 
 Projektet er skabt med kreative kodningsværktøjer som __p5.js__ til visuelle eksperimenter og __A-Frame__ Til 3D og __Augmented Reality__. Tech Street Art viser, hvordan webteknologi kan bruges som et kunstnerisk medie.

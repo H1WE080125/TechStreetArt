@@ -1,0 +1,67 @@
+.site-footer {
+  background: #0f1214;
+  color: #e8e8e8;
+  padding: 2rem 1rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+.site-footer a {
+  color: #00bcd4;
+  text-decoration: underline;
+}
+.site-footer a:hover {
+  color: rgb(8, 227.0377358491, 255);
+}
+.site-footer__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+}
+.site-footer__title {
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: white;
+}
+.site-footer__brand {
+  display: grid;
+  grid-template-columns: 64px auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+.site-footer__logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.site-footer address {
+  font-style: normal;
+  color: #b0b8c0;
+  line-height: 1.5;
+}
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+}
+.site-footer__bottom {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  font-size: 0.875rem;
+  color: #b0b8c0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}/*# sourceMappingURL=footer-style.css.map */

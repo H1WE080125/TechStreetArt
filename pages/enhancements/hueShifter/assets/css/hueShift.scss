@@ -1,9 +1,25 @@
-
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    margin: 0;
+    padding: 20px;
+}
 
 #hueShifter{
     position: relative;
     width: 70%;
+    height: 60vh;
  
+}
+
+ input[type="range"]{
+    width: 80%;
+    cursor: pointer;
+   
 }
 
 #hueShifter img{
@@ -12,4 +28,4 @@
     left: 0;
     width: 100%;
     height: auto;
-}
+}           

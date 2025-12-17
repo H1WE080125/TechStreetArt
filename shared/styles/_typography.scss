@@ -1,0 +1,23 @@
+// fonts and typography settings
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sedgwick+Ave&family=Syne:wght@400..800&display=swap%27');
+
+// sieze settings
+$HeadingSiezeOne: 40px; // for main titles
+$HeadingSiezeTwo: 38px; // for section titles
+$HeadingSiezeThree: 20px; // for card titles
+$ParagraphSize: 20px; // for paragraph sizes
+
+
+// font weight settings
+$HeadingOneBold: 600; // bold
+$HeadingTwoBold: 400; // regular
+$HeadingThreeBold: 300; // light
+
+
+// font family settings
+$HeadingOneFont: 'Sedgwick Ave', 600; // for main titles
+$HeadingTwoFont: 'Inter', sans-serif; // for section titles
+$HeadingThreeFont: 'Inter', sans-serif; // for card titles
+$ParagraphFont: 'Inter', sans-serif; // for paragraphs

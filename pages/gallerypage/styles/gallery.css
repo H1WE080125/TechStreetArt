@@ -1,3 +1,106 @@
 .galleryClass {
   margin: 0;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  /* Container */
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Gallery items */
+  .container div {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .container div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Image styling */
+  .container figure {
+    margin: 0;
+  }
+  
+  .container figure img {
+    display: block;
+    width: 100%;
+    max-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Caption styling */
+  .container figure caption {
+    display: block;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    color: #334155;
+    text-align: center;
+  }
+
+  /* Lightbox baggrund */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Synliggør lightbox */
+  .lightbox.active {
+    display: flex;
+  }
+  
+  /* Billedet i lightbox */
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    /* animation: zoomIn 0.3s ease; */
+  }
+  
+  /* Klik-for-at-lukke markør */
+  .lightbox::after {
+    content: '×';
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Zoom animation */
+  /* @keyframes zoomIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  } */
+  
+  

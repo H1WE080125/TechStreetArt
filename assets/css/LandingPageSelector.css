@@ -1,0 +1,164 @@
+    /*  VARIABLES*/
+:root {
+  --primary: #789598;
+  --secondary: #000000;
+  --accent: #F66A17;
+  --tertiary: #FFFFFF;
+}
+
+/* RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--primary);
+  height: 100vh;
+}
+
+/*  NAVBAR*/
+.tsa-navbar {
+  background-color: var(--secondary);
+  border: 3px solid var(--accent);
+}
+
+.tsa-navbar__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 24px;
+}
+
+.tsa-navbar__logo img {
+  height: 65px;
+}
+
+.tsa-navbar__logo--right {
+  visibility: hidden;
+}
+
+.tsa-navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.tsa-navbar__nav a {
+  color: var(--tertiary);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.tsa-navbar__nav a:hover {
+  color: var(--accent);
+}
+
+.tsa-navbar__divider {
+  width: 2px;
+  height: 18px;
+  background-color: var(--accent);
+}
+
+/* HERO*/
+.tsa-hero {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: center;
+  padding: 0px 0;
+}
+
+.tsa-hero__logo {
+  height: 154px;
+}
+
+/* CARDS SECTION*/
+.tsa-cards {
+  padding: 40px 0 60px;
+}
+
+.tsa-cards__grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* CARD*/
+.tsa-card {
+  background-color: var(--tertiary);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.tsa-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tsa-card__content {
+  padding: 10px;
+}
+
+.tsa-card__title {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.tsa-card__text {
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.tsa-card__link {
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  border-bottom: 2px solid var(--accent);
+}
+
+.tsa-footer {
+  background-color: var(--secondary);
+  border-top: 3px solid var(--accent);
+  color: var(--tertiary);
+  font-size: 13px;
+}
+
+/* Footer main content */
+.tsa-footer__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+/* Footer columns */
+.tsa-footer__column p {
+  margin-bottom: 6px;
+}
+
+.tsa-footer__heading {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* Bottom bar */
+.tsa-footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 14px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-size: 12px;
+}

@@ -36,12 +36,60 @@
 
       <!-- Links -->
       <section class="links">
-        <a href="">Find lokation</a>
-        <a href="">Streetart</a>
+        <a href="/pages/arpage/arpage.html">Find lokation</a>
+        <a href="/pages/gallerypage/gallerypage.html">Streetart</a>
+        <a href="/pages/enhancements/enhancements.html">Streetart Enhancements</a>
       </section>
     </main>
-    <footer>
-      <p>2025 Digital Kultur Events</p>
-    </footer>
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+          <!-- Logo og adresse -->
+          <section class="site-footer__brand">
+            <img class="site-footer__logo" src="/pages/Footer/assets/Techcollege logo.png" alt="TechCollege logo">
+            <div>
+              <h3 class="site-footer__title">TechCollege</h3>
+              <address>
+                Øster Uttrup Vej 5<br>
+                9000 Aalborg<br>
+                Danmark
+              </address>
+            </div>
+          </section>
+
+          <!-- Teknologier -->
+          <section class="site-footer__tech">
+            <h3 class="site-footer__title">Teknologier benyttet</h3>
+            <ul aria-label="Liste over teknologier">
+              <li>HTML</li>
+              <li>SCSS</li>
+              <li>TypeScript</li>
+              <li>AR.js</li>
+              <li>p5.js</li>
+              <li>Geolocation API</li>
+            </ul>
+          </section>
+
+          <!-- Kreditering og link -->
+          <section class="site-footer__credits">
+            <h3 class="site-footer__title">Kreditering</h3>
+            <p>Udviklet af TechStreetArt-holdet.</p>
+            <p>
+              <a href="https://techcollege.dk/uddannelser/webudvikler/" target="_blank" rel="noopener noreferrer">
+                Webudvikler-uddannelsen på TechCollege
+              </a>
+            </p>
+          </section>
+        </div>
+
+        <!-- Bundlinje -->
+        <div class="site-footer__bottom">
+          <span>© <span id="footer-year"></span> TechStreetArt</span>
+          <span>All rights reserved.</span>
+        </div>
+      </footer>
+      <script>
+        // Dynamisk årstal i footer
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+      </script>
   </body>
 </html>

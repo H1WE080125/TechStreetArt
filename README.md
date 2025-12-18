@@ -1,5 +1,8 @@
 # TechStreetArt
 
+
+<img width="300" height="300" alt="techStreetAr" src="https://github.com/user-attachments/assets/30620192-c0fc-4d10-bd36-004b82587b98" />
+
 Et juleprojekt hvor hele klassen samarbejder om at skabe en interaktiv guide til Aalborgs Streetart. Gennem denne app vil brugere kunne gå på opdagelse i Aalborgs to mest farverige og sprudlende street art lokationer. De vil også kunne finde vej dertil, samt læse om de to lokationer, hvilke kunstnere de vil kunne opleve og
 
 # Projektet indeholder

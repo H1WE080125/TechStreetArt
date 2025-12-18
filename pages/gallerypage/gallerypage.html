@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StreetArt Gallery</title>
+  <script src="scripts/gallery.js" defer></script>
+  <link rel="stylesheet" href="styles/gallery.css">
+
+</head>
+<body>
+
+<div id="gallerySwitch">
+  <button onclick="loadGallery(1)">Gallery 1</button>
+  <button onclick="loadGallery(2)">Gallery 2</button>
+</div>
+
+<div id="gallerySlider">
+  <button onclick="prevImage()">&lt;</button>
+  <img id="gallerySliderImage" src="">
+  <button onclick="nextImage()">&gt;</button>
+</div>
+
+<div id="galleryGridSlider">
+<button onclick="prevGrid()">&lt;</button>
+<div id="galleryGrid"></div>
+<button onclick="nextGrid()">&gt;</button>
+</div>
+
+
+
+</body>
+</html>

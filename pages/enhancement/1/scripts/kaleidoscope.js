@@ -1,0 +1,303 @@
+/* The P5 functions are explained at https://p5js.org/reference/ */
+
+let spotlightByMariePierreLessard = "";
+/* I had to define this variable globally to access it with draw(). It represents an input element (HTML). */
+let colourPickerByMariePierreLessard = null;
+
+/* 2 lines below: inspired by P5 beginner project at
+https: //p5js.org/tutorials/creating-styling-html  
+Ratios: 
+Portrait:
+1080/1920 px = 0.5625
+Landscape: 
+1920/1080 px = 1.777777777777778
+
+let canvasWidthByMariePierreLessard = 1080;
+let canvasHeightByMariePierreLessard = 1920;
+
+However, I need responsive design. See solution in function setup().
+*/
+
+// Source of 2 lines below: https://p5js.org/examples/repetition-kaleidoscope/
+// Define the global variables. The symmetry variable will define how many reflective sections the canvas is split into.
+let symmetry = 6;
+
+// Source of 2 lines below: https://p5js.org/examples/repetition-kaleidoscope/
+// The angle button will calculate the angle at which each section is rotated.
+let angle = 360 / symmetry;
+
+/* "preload()
+A function that's called once to load assets before the sketch runs.
+Declaring the function preload() sets a code block to run once automatically before setup() or draw(). It's used to load assets including multimedia files, fonts, data, and 3D models: (...)
+Functions such as loadImage(), loadFont(), loadJSON(), and loadModel() are guaranteed to either finish loading or raise an error if they're called within preload(). Doing so ensures that assets are available when the sketch begins running."
+https://p5js.org/reference/p5/preload/ */
+function preload() {
+    //Loading of default art to enhance (this is the art on spotlight, not the user's choice)
+    spotlightByMariePierreLessard = loadImage("https://i.postimg.cc/6qjf8zLz/Photo-15-12-2025-09-34-12-karolinelund-fullscreen.webp");
+};
+
+function saveBtnClickedByMariePierreLessard() {
+    saveCanvas("user-graffiti", "webp");
+};
+
+/* "clear()
+Clears the pixels on the canvas."
+https://p5js.org/reference/p5/clear/ */
+function resetBtnClickedByMariePierreLessard() {
+    clear();
+    background(spotlightByMariePierreLessard);
+};
+
+/* "setup()
+A function that's called once when the sketch begins running. (...)
+Code placed in setup() will run once before code placed in draw() begins looping. If the preload() is declared, then setup() will run immediately after preload() finishes loading assets."
+https://p5js.org/reference/p5/setup/ 
+*/
+function setup() {
+
+    /* "createCanvas()
+    Creates a canvas element on the web page.
+    createCanvas() creates the main drawing canvas for a sketch. It should only be called once at the beginning of setup(). Calling createCanvas() more than once causes unpredictable behavior.
+    The first two parameters, width and height, are optional. (...)
+    The third parameter is also optional. If either of the constants P2D or WEBGL is passed, as in createCanvas(900, 500, WEBGL), then it will set the sketch's rendering mode. If an existing HTMLCanvasElement is passed, as in createCanvas(900, 500, myCanvas), then it will be used by the sketch.
+    The fourth parameter is also optional. If an existing HTMLCanvasElement is passed, as in createCanvas(900, 500, WEBGL, myCanvas), then it will be used by the sketch."
+    https://p5js.org/reference/p5/createCanvas/ 
+    Note: this literally creates an element called canvas, which can be styled like HTML elements with CSS. */
+    /* Responsive design: this is how you get the canvas to fill entire window (100vw and 100vh).
+    "windowWidth
+    A Number variable that stores the width of the browser's viewport."
+    https://p5js.org/reference/p5/windowWidth/
+    "windowHeight
+    A Number variable that stores the height of the browser's viewport."
+    https://p5js.org/reference/p5/windowHeight/
+    For some reason, I cannot use these variables in global scope. Error: undefined.
+    The following works:
+    createCanvas(windowWidth, windowHeight);
+    */
+    /* Notes from earlier version of web app:
+    This leaves room for control buttons or the like above or under the canvas. 
+    I also need to set the canvasWidth, otherwise I get scroll to the right on small devices. 
+    const canvasHeight = windowHeight * 0.96;
+    const canvasWidth = windowWidth * 0.96;
+    */
+    /* 2 lines below: inspired by image-measurement variables at
+    https://p5js.org/reference/p5.Image/width/ 
+
+    spotlightWidthByMariePierreLessard = spotlightByMariePierreLessard.width;
+    console.log(spotlightWidthByMariePierreLessard); //Returns 1 with test picture, both when canvas is 100vw and when width set at 1080, whether or not the pic fills the whole width of canvas! (Why?)
+    spotlightHeightByMariePierreLessard = spotlightByMariePierreLessard.height;
+    console.log(spotlightHeightByMariePierreLessard); //Returns 1 with test picture, both when canvas is 100vh and when width set at 1920
+
+    Below, I chose let instead of const because a picture swapper could require a reassignment.
+    */
+    let activityContainerByMariePierreLessard = createDiv();
+    activityContainerByMariePierreLessard.id("activity-container");
+    /* This avoids scroll (picture being wider than parent). 
+    The process is also taking too long acc. to the console, but it's a problem with the P5 library acc. to Bo. */
+    activityContainerByMariePierreLessard.height = windowHeight;
+    /* Because the scroll bar takes a bit of room on a mobile phone 
+    and because there is an inline margin and I want the look of having some padding inside of the activity container */
+    activityContainerByMariePierreLessard.width = windowWidth * 0.86;
+    let canvasByMariePierreLessard = null;
+
+    /* This is to keep the proportions of the canvas equal to the proportions of the pic it contains.
+    The pic is a background pic now, so equal propertions are necessary to avoid distortion. */
+    /* P5 must course-correct because the activity container contains buttons, but those aren't counted as part of the height. */
+    if (spotlightByMariePierreLessard.height > spotlightByMariePierreLessard.width) {
+        let canvasHeightByMariePierreLessard = activityContainerByMariePierreLessard.height; 
+        let canvasWidthByMariePierreLessard = spotlightByMariePierreLessard.width * canvasHeightByMariePierreLessard / spotlightByMariePierreLessard.height;
+        canvasByMariePierreLessard = createCanvas(canvasWidthByMariePierreLessard, canvasHeightByMariePierreLessard);
+    } else {
+        /* To avoid scroll, I need this for landscape pictures. */
+        let canvasWidthByMariePierreLessard = activityContainerByMariePierreLessard.width;
+        let canvasHeightByMariePierreLessard = spotlightByMariePierreLessard.height * canvasWidthByMariePierreLessard / spotlightByMariePierreLessard.width;
+        canvasByMariePierreLessard = createCanvas(canvasWidthByMariePierreLessard, canvasHeightByMariePierreLessard);
+    };
+
+    /* When a new project is created, 
+    background(220); 
+    is in the draw function. 
+    "This function clears the canvas before each frame is drawn, maintaining a consistent background for an ongoing animation."
+    https://p5js.org/tutorials/creating-styling-html
+    Acc. to advice on video "p5.js Tutorial | Getting Started with Creative Coding" by Patt Vira at 
+    https://www.youtube.com/watch?v=x1NxkEjfNtI&list=PL0beHPVMklwgMz4Z-mNp4_udo9mjBk7pn&index=1
+    background() needs to be moved from draw() to setup() 
+    in order to get the enhancement to make a lasting change on the background. 
+    Otherwise, in the draw function, the background is rendered again every time that the design stacked on top of it moves. 
+    (That option is good for an animation over a static background.)
+    */
+    /* The numbers in brackets can be colours, e.g. RGB colours with an alpha value,
+    but the method can also display an image along with an alpha value. See: 
+    https://p5js.org/reference/p5/background/ 
+    The following worked. However, a background picture tends to get stretched/deformed because it fills the whole canvas.
+    I got unexpected and variable results when making canvas fill the whole window. The pic eventually filled the whole width,
+    but initially, there were white margins on each side. 
+    background(spotlightByMariePierreLessard);
+    */
+    /* Notes from earlier version, before I made the canvas the size of the picture and put the canvas in a parent:
+    IMPORTANT: a white background colour has to be set here, not in the CSS file, 
+    or the saved art has a black background, which is not useable in our gallery
+    and it would also cost tons of money to print for a fictitious user. 
+    background("rgb(255, 255, 255)"); 
+    */
+    background(spotlightByMariePierreLessard);
+
+    /* Notes from earlier version, before I made the canvas the size of the picture and put the canvas in a parent:
+    Since the picture orientation varies (portrait/landscape), I am inserting the image in the canvas with image() 
+    to maintain the aspect ratio no matter what the dimensions of the view port are.
+    "By default, image() draws the full source image at its original size. (...)
+    // Draw the image and scale it to fit within the canvas.
+    image(img, 0, 0, width, height, 0, 0, img.width, img.height, CONTAIN);
+    Syntax
+    image(img, x, y, [width], [height]) (...)
+    Parameters
+    img
+    p5.Image|p5.Element|p5.Texture|p5.Framebuffer|p5.FramebufferTexture: image to display.
+    x
+    Number: x-coordinate of the top-left corner of the image.
+    y
+    Number: y-coordinate of the top-left corner of the image.
+    width
+    Number: width to draw the image.
+    height
+    Number: height to draw the image.
+    dx
+    Number: the x-coordinate of the destination rectangle in which to draw the source image
+    dy
+    Number: the y-coordinate of the destination rectangle in which to draw the source image
+    dWidth
+    Number: the width of the destination rectangle
+    dHeight
+    Number: the height of the destination rectangle (...)
+    fit
+    Constant: either CONTAIN or COVER"
+    https://p5js.org/reference/p5/image/ 
+    
+    image(spotlightByMariePierreLessard, 0, 0, width, height, 0, 0, spotlightByMariePierreLessard.width, spotlightByMariePierreLessard.height, CONTAIN);
+    */
+
+    /* "describe()
+    Creates a screen reader-accessible description of the canvas."
+    https://p5js.org/reference/p5/describe/ */
+    /* Source of 4 following lines: https://p5js.org/examples/repetition-kaleidoscope/ */
+    describe(
+        `Canvas that reflects the lines drawn within it in ${symmetry} sections.`
+      );
+    angleMode(DEGREES);  
+
+    /* Code to place the canvas inside of a parent is given here:
+    https://p5js.org/tutorials/creating-styling-html
+    and
+    https://forum.processing.org/two/discussion/13051/how-do-i-bind-p5-canvas-to-an-html-page.html 
+    The sources indicate that the P5 JS library has child() and parent() methods, among others.
+    This looked like vulgarised JavaScript for beginners. As a consequence, I tried coding in ordinary JS, but it DIDN'T WORK.
+    The following code gave the following error in the console:
+    "Uncaught (in promise) TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'." 
+    const artViewer = document.getElementById("art-viewer");
+    const p5Canvas = createCanvas(400, 400);
+    artViewer.appendChild(p5Canvas);
+    */
+    let artViewerByMariePierreLessard = createDiv();
+    artViewerByMariePierreLessard.id("p5-art-viewer");
+    /* How to use createElement:
+    https://p5js.org/reference/p5/createElement/ */
+    let introByMariePierreLessard = createDiv();
+    introByMariePierreLessard.id("intro-container");
+    let viewerHeadingByMariePierreLessard = createElement("h2", "Kalejdoskop");
+    /* https://p5js.org/reference/p5/createP/ */
+    let viewerIntructionsByMariePierreLessard = createP(`For at danne et flot kalejdoskop, kan du med fordel skifte farven en gang i mellem med farvevælgeren! Når du er tilfreds med dit kunstværk, tryk på knappen "Gem din graffiti" for at få en kopi!`);
+    let attributionByMariePierreLessard = createP(`Kreditering for den grafiske funktionalitet (på engelsk): "Kaleidoscope: Revised by Kasey Lichtlyter. Edited and maintained by p5.js Contributors and Processing Foundation. Licensed under CC BY-NC-SA 4.0."`);
+    let btnContainerByMariePierreLessard = createDiv();
+    btnContainerByMariePierreLessard.id("btn-container");
+
+    /* Source: https://p5js.org/reference/p5/createButton/ */
+    let saveBtnByMariePierreLessard = createButton("Gem din graffiti");
+    saveBtnByMariePierreLessard.class("btn");
+    /* "mousePressed()
+    Calls a function when the mouse is pressed over the element."
+    https://p5js.org/reference/p5.Element/mousePressed/ and
+    https://p5js.org/reference/p5/mousePressed/ */
+    /* "save()
+    Saves a given element(image, text, json, csv, wav, or html) to the client's computer. The first parameter can be a pointer to element we want to save. (...)
+    The second parameter is a filename (including extension).The third parameter is for options specific to this type of object. This method will save a file that fits the given parameters. If it is called without specifying an element, by default it will save the whole canvas as an image file."
+    https://p5js.org/reference/p5/save/ */
+    /* Alternative:
+    "saveCanvas()
+    Saves the current canvas as an image."
+    https://p5js.org/reference/p5/saveCanvas/
+
+    This saves at initialisation if I enter it here:
+    saveCanvas("user-graffiti.webp");
+
+    The following works. Initially, the P5 code generated an error, but it fixed itself mysteriously. 
+    I could find no fix in spite of various Google searches. 
+    */
+    saveBtnByMariePierreLessard.mousePressed(saveBtnClickedByMariePierreLessard);
+
+    let resetBtnByMariePierreLessard = createButton("&#8635;");
+    resetBtnByMariePierreLessard.class("btn btn--small");
+    resetBtnByMariePierreLessard.mousePressed(resetBtnClickedByMariePierreLessard);
+
+    /* Source: https://p5js.org/reference/p5/createColorPicker/ */
+    colourPickerByMariePierreLessard = createColorPicker("rgb(246, 106, 23)");
+    colourPickerByMariePierreLessard.class("picker");
+    
+    introByMariePierreLessard.child(viewerHeadingByMariePierreLessard);
+    introByMariePierreLessard.child(viewerIntructionsByMariePierreLessard);
+    introByMariePierreLessard.child(attributionByMariePierreLessard);
+    btnContainerByMariePierreLessard.child(colourPickerByMariePierreLessard);
+    btnContainerByMariePierreLessard.child(resetBtnByMariePierreLessard);
+    btnContainerByMariePierreLessard.child(saveBtnByMariePierreLessard);
+    activityContainerByMariePierreLessard.child(btnContainerByMariePierreLessard);
+    activityContainerByMariePierreLessard.child(canvasByMariePierreLessard);
+    artViewerByMariePierreLessard.child(introByMariePierreLessard);
+    artViewerByMariePierreLessard.child(activityContainerByMariePierreLessard);
+    /* "parent()
+    Attaches the element to a parent element. (...)
+    The parameter parent can have one of three types. parent can be a string with the parent element's ID, as in myElement.parent('container'). It can also be another p5.Element object, as in myElement.parent(myDiv). Finally, parent can be an HTMLElement object, as in myElement.parent(anotherElement)."
+    https://p5js.org/reference/p5.Element/parent/ 
+    
+    kaleidoscope-container is a div in the HTML file. */
+    artViewerByMariePierreLessard.parent("kaleidoscope-container");
+
+    //Maybe TO DO: image switcher in setup function, e.g. artForCanvasByMariePierreLessard (I would need a list of URLs for pics)
+
+};
+
+function draw() {
+    let pickedClrStrokeByMariePierreLessard = colourPickerByMariePierreLessard.color();
+
+    /* Source of draw function: https://p5js.org/examples/repetition-kaleidoscope/
+    which I edited to add a colour picker */
+    // Move the 0,0 coordinates of the canvas to the center, instead of in
+    // the top left corner.
+    translate(width / 2, height / 2);
+
+    // If the cursor is within the limits of the canvas...
+    if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+        // Translate the current position and the previous position of the
+        // cursor to the new coordinates set with the translate() function above.
+        let lineStartX = mouseX - width / 2;
+        let lineStartY = mouseY - height / 2;
+        let lineEndX = pmouseX - width / 2;
+        let lineEndY = pmouseY - height / 2;
+
+        // And, if the mouse is pressed while in the canvas...
+        if (mouseIsPressed === true) {
+            // For every reflective section the canvas is split into, draw the cursor's
+            // coordinates while pressed...
+            for (let i = 0; i < symmetry; i++) {
+                rotate(angle);
+                stroke(pickedClrStrokeByMariePierreLessard);
+                strokeWeight(3);
+                line(lineStartX, lineStartY, lineEndX, lineEndY);
+
+                // ... and reflect the line within the symmetry sections as well.
+                push();
+                scale(1, -1);
+                line(lineStartX, lineStartY, lineEndX, lineEndY);
+                pop();
+            };
+        };
+    };
+};

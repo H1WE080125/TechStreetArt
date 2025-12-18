@@ -1,0 +1,34 @@
+// Layout spacing tokens extracted from the landing page design
+
+// LANDNG PAGE -----------------------------------------------------------------------------------------------------------
+// Hero block
+$hero-height: 265px; // Match Figma hero container height
+$hero-border-width: 3px; // Accent outline thickness
+$hero-padding-block: 32px; // Top/bottom breathing room for the hero text
+$hero-padding-inline: 56px; // Keep headline away from edges
+$hero-text-gap: 16px; // Space between hero headline and CTA
+
+// CTA button in hero
+$hero-cta-height: 59px; // Button container height from Figma
+$hero-cta-padding-inline: 22px; // Left/right padding inside CTA
+$hero-cta-padding-block: 10px; // Top/bottom padding to balance 38px text
+$hero-cta-border-width: 2px; // CTA outline thickness
+
+// Footer strip
+$footer-border-width: 3px; // Orange top border thickness
+$footer-padding-block: 24px; // Vertical padding for footer content
+$footer-padding-inline: 120px; // Horizontal padding to align columns
+$footer-column-gap: 180px; // Distance between footer column groups
+$footer-row-gap: 12px; // Vertical spacing inside footer columns
+
+// Homepage layout
+$home-nav-height: 120px; // Top navigation bar height from homepage mock
+$home-nav-padding-inline: 32px; // Keep nav links inset from edges
+$home-card-width: 320px; // Approx card width used in the homepage grid
+$home-card-gap: 36px; // Horizontal gap between cards
+$home-card-padding: 18px; // Inner padding for card content blocks
+$home-card-media-height: 327px; // Image height for the homepage cards
+$home-section-padding-block: 48px; // Vertical padding between stacked homepage sections
+$home-gallery-gap: 64px; // Gap between gallery rows/blocks on homepage
+$home-button-margin-top: 18px; // Space above CTA text in cards
+//------------------------------------------------------------------------------------------------------------------------------------------

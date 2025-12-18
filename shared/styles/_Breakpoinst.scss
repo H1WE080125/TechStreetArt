@@ -1,0 +1,12 @@
+// til media query breakpoints
+
+$breakpoints: (
+  xs: 0,        // små telefoner
+  sm: 576px,    // telefon
+  md: 768px,    // tablet (portrait)
+  lg: 1024px,   // tablet landscape / lille laptop
+  xl: 1280px,   // desktop
+  xxl: 1440px   // store skærme
+);
+
+

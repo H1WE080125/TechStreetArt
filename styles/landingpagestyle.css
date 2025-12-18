@@ -53,7 +53,6 @@ body {
   background-color: #00ffcc;
   color: #000000;
   transition: transform 0.2s ease, background-color 0.3s ease;
-  text-decoration: none;
 }
 
 .tsa-landing__button:hover,

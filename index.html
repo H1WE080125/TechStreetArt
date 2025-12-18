@@ -27,13 +27,18 @@
           Tech Street Art blander rå, urban kreativitet med augmented reality og afslører frække, skjulte digitale lag, der først kommer frem, når du leger med din enhed.
         </p>
 
-
-        <!-- Dette er knappen som fører videre til landingPageAR.html -->
-        <a href="/landingPageSelector.html" id="tsaStartButton" class="tsa-landing__button" aria-label="Start the augmented reality experience">
+        <button
+          id="tsaStartButton"
+          class="tsa-landing__button"
+          aria-label="Start the augmented reality experience"
+          onclick="location.href='pages/frontpage/frontpage.html';"
+        >
           Start din oplevelse
-        </a>
+        </button>
       </div>
     </section>
 
+    <!-- TypeScript entry -->
+    <script type="module" src="main.ts"></script>
   </body>
 </html>

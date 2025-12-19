@@ -1,8 +1,11 @@
 /* The P5 functions are explained at https://p5js.org/reference/ */
 
+/* This variable is accessed by preload(), setup() and resetBtnClickedByMariePierreLessard() */
 let spotlightByMariePierreLessard = "";
 /* I had to define this variable globally to access it with draw(). It represents an input element (HTML). */
 let colourPickerByMariePierreLessard = null;
+/* This variable is accessed by preload() and randomSelectionMadeByMariePierreLessard() */
+let imgObjectByMariePierreLessard = null;
 
 /* 2 lines below: inspired by P5 beginner project at
 https: //p5js.org/tutorials/creating-styling-html  
@@ -34,6 +37,20 @@ https://p5js.org/reference/p5/preload/ */
 function preload() {
     //Loading of default art to enhance (this is the art on spotlight, not the user's choice)
     spotlightByMariePierreLessard = loadImage("https://i.postimg.cc/6qjf8zLz/Photo-15-12-2025-09-34-12-karolinelund-fullscreen.webp");
+
+    /* "loadJSON()
+    Loads a JSON file to create an Object. (...)
+    The first parameter, path, is always a string with the path to the file. Paths to local files should be relative, as in loadJSON('/assets/data.json'). 
+    The second parameter, successCallback, is optional. If a function is passed, as in loadJSON('/assets/data.json', handleData), then the handleData() function will be called once the data loads. The object created from the JSON data will be passed to handleData() as its only argument. (...)
+    Note: Data can take time to load. Calling loadJSON() within preload() ensures data loads before it's used in setup() or draw()."
+    https://p5js.org/reference/p5/loadJSON/ 
+    
+    Because loadJSON is asynchronous, the easiest way to accomplish this is by putting JSON file in memory at initialisation with preload(). 
+    */
+    imgObjectByMariePierreLessard = loadJSON("../../../../shared/scripts/img_urls.json");
+    /* This prints the object. 
+    console.log(imgObjectByMariePierreLessard); 
+    */
 };
 
 function saveBtnClickedByMariePierreLessard() {
@@ -46,6 +63,56 @@ https://p5js.org/reference/p5/clear/ */
 function resetBtnClickedByMariePierreLessard() {
     clear();
     background(spotlightByMariePierreLessard);
+};
+
+/* The function generateRandomIntegerByMariePierreLessard is code from my "storefront-opgave". 
+I just changed the size of the array. It generates a random index for an array. */
+function generateRandomIntegerByMariePierreLessard() {
+    /* Returns a random integer from 0 to 132, inclusively
+    https://www.w3schools.com/js/js_random.asp */
+    let randomIntegerByMariePierreLessard = Math.floor(Math.random() * 133);
+    console.log(randomIntegerByMariePierreLessard); 
+    /* If I don't explicitely state that the returned result of the function is randomIntegerByMariePierreLessard, I get an Undefined error. */
+    return randomIntegerByMariePierreLessard;
+};
+
+function randomSelectionMadeByMariePierreLessard() {
+    clear();
+    /* Since the selection of a new picture might take time, the user should see that something happened 
+    when the button was clicked. */
+    background(255, 255, 255);
+
+    /* Since I don't want the reset button to change the current picture, the selection of a random picture needs to be made in function
+    randomSelectionMadeByMariePierreLessard. Moreover, the enhancement page is supposed to show before and
+    after pictures, that example should always be a default picture on the corresponding activity page,
+    not some randomly selected picture.
+
+    /* This prints the array from the JSON file. 
+    console.log(imgObjectByMariePierreLessard.images);
+    */
+
+    /* This generates a random index for one of the images in the array. */
+    let indexByMariePierreLessard = generateRandomIntegerByMariePierreLessard();
+
+    /* This works. 
+    let objectAtIndexByMariePierreLessard = imgObjectByMariePierreLessard.images[indexByMariePierreLessard]; 
+    console.log(objectAtIndexByMariePierreLessard);
+    */
+
+    let newSpotlightUrlByMariePierreLessard = imgObjectByMariePierreLessard.images[indexByMariePierreLessard].img; 
+    console.log(newSpotlightUrlByMariePierreLessard);
+
+    /* This doesn't work because loadImage is asynchronous. 
+    Bo said that I need to put loadImage in preload() or use a callback. 
+    spotlightByMariePierreLessard = loadImage(newSpotlightUrlByMariePierreLessard);
+    background(spotlightByMariePierreLessard);
+    */
+    loadImage(newSpotlightUrlByMariePierreLessard, showRandomSelectionMariePierreLessard);
+};
+
+function showRandomSelectionMariePierreLessard(url) {
+    clear();
+    background(url);
 };
 
 /* "setup()
@@ -98,6 +165,8 @@ function setup() {
     /* Because the scroll bar takes a bit of room on a mobile phone 
     and because there is an inline margin and I want the look of having some padding inside of the activity container */
     activityContainerByMariePierreLessard.width = windowWidth * 0.86;
+    /* canvasByMariePierreLessard is accessed outside of the conditional below, 
+    so it needs to be in local scope, not just block scope */
     let canvasByMariePierreLessard = null;
 
     /* This is to keep the proportions of the canvas equal to the proportions of the pic it contains.
@@ -206,9 +275,15 @@ function setup() {
     let viewerHeadingByMariePierreLessard = createElement("h2", "Kalejdoskop");
     /* https://p5js.org/reference/p5/createP/ */
     let viewerIntructionsByMariePierreLessard = createP(`For at danne et flot kalejdoskop, kan du med fordel skifte farven en gang i mellem med farvevælgeren! Når du er tilfreds med dit kunstværk, tryk på knappen "Gem din graffiti" for at få en kopi!`);
-    let attributionByMariePierreLessard = createP(`Kreditering for den grafiske funktionalitet (på engelsk): "Kaleidoscope: Revised by Kasey Lichtlyter. Edited and maintained by p5.js Contributors and Processing Foundation. Licensed under CC BY-NC-SA 4.0."`);
-    let btnContainerByMariePierreLessard = createDiv();
-    btnContainerByMariePierreLessard.id("btn-container");
+    viewerIntructionsByMariePierreLessard.class("first-of-type-p");
+    let btnContainerOneByMariePierreLessard = createDiv();
+    btnContainerOneByMariePierreLessard.class("btn-container");
+    let randomSelectionBtnByMariePierreLessard = createButton("Prøv eventuelt med et andet billede");
+    randomSelectionBtnByMariePierreLessard.class("btn btn--big");
+    randomSelectionBtnByMariePierreLessard.mousePressed(randomSelectionMadeByMariePierreLessard);
+    let attributionByMariePierreLessard = createElement("small", `Kreditering for den grafiske funktionalitet (på engelsk): "Kaleidoscope: Revised by Kasey Lichtlyter. Edited and maintained by p5.js Contributors and Processing Foundation. Licensed under CC BY-NC-SA 4.0."`);
+    let btnContainerTwoByMariePierreLessard = createDiv();
+    btnContainerTwoByMariePierreLessard.class("btn-container");
 
     /* Source: https://p5js.org/reference/p5/createButton/ */
     let saveBtnByMariePierreLessard = createButton("Gem din graffiti");
@@ -244,14 +319,16 @@ function setup() {
     
     introByMariePierreLessard.child(viewerHeadingByMariePierreLessard);
     introByMariePierreLessard.child(viewerIntructionsByMariePierreLessard);
-    introByMariePierreLessard.child(attributionByMariePierreLessard);
-    btnContainerByMariePierreLessard.child(colourPickerByMariePierreLessard);
-    btnContainerByMariePierreLessard.child(resetBtnByMariePierreLessard);
-    btnContainerByMariePierreLessard.child(saveBtnByMariePierreLessard);
-    activityContainerByMariePierreLessard.child(btnContainerByMariePierreLessard);
+    btnContainerOneByMariePierreLessard.child(randomSelectionBtnByMariePierreLessard);
+    introByMariePierreLessard.child(btnContainerOneByMariePierreLessard);
+    btnContainerTwoByMariePierreLessard.child(colourPickerByMariePierreLessard);
+    btnContainerTwoByMariePierreLessard.child(resetBtnByMariePierreLessard);
+    btnContainerTwoByMariePierreLessard.child(saveBtnByMariePierreLessard);
+    activityContainerByMariePierreLessard.child(btnContainerTwoByMariePierreLessard);
     activityContainerByMariePierreLessard.child(canvasByMariePierreLessard);
     artViewerByMariePierreLessard.child(introByMariePierreLessard);
     artViewerByMariePierreLessard.child(activityContainerByMariePierreLessard);
+    artViewerByMariePierreLessard.child(attributionByMariePierreLessard);
     /* "parent()
     Attaches the element to a parent element. (...)
     The parameter parent can have one of three types. parent can be a string with the parent element's ID, as in myElement.parent('container'). It can also be another p5.Element object, as in myElement.parent(myDiv). Finally, parent can be an HTMLElement object, as in myElement.parent(anotherElement)."
@@ -259,9 +336,6 @@ function setup() {
     
     kaleidoscope-container is a div in the HTML file. */
     artViewerByMariePierreLessard.parent("kaleidoscope-container");
-
-    //Maybe TO DO: image switcher in setup function, e.g. artForCanvasByMariePierreLessard (I would need a list of URLs for pics)
-
 };
 
 function draw() {

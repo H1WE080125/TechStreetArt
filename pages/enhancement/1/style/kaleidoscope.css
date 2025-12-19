@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sedgwick+Ave&family=Syne:wght@400..800&display=swap%27");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/* Notes on global styling (posted on Teams):
+Primary Color #789598 / rgb(120, 149, 152)
+Secondary Color: #000000 
+Accent Color: #F66A17 / rgb(246, 106, 23)
+Tertiary Color: #FFFFFF
+
+Fonts:
+ Heading 1: Segdwick Ave. (600) 
+ @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sedgwick+Ave&family=Syne:wght@400..800&display=swap%27");
+
+ Heading 2: Inter (font-size:38) 
+ p: Inter (20)
+*/
+/* Global variables were copied and pasted from folder: https: //github.com/H1WE080125/TechStreetArt/tree/main/shared/styles */
+* {
+  /* 2 lines below: from P5 project initialisation 
+      (basic CSS reset) */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /* 2 lines below: from P5 project initialisation 
+  (basic CSS reset) */
+  margin: 0;
+  padding: 0;
+  background-color: #789598;
+}
+
+body {
+  margin-inline: 4vw;
+}
+
+#p5-art-viewer {
+  /* 2 lines below: from P5 beginner project at
+  https: //p5js.org/tutorials/creating-styling-html */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#p5-art-viewer #intro-container {
+  justify-content: left;
+  /* In P5 textual elements, the margins don't overlap, which creates a lot of space between each line of text.
+  It's like the margins are padding in grid rows. */
+}
+#p5-art-viewer #intro-container h2 {
+  /* 26px is about 2 thirds of 38px,
+              the size of the h2 */
+  margin-top: 26px;
+  margin-bottom: 0;
+  font-size: 38px;
+  font-weight: 400;
+}
+#p5-art-viewer #intro-container h2::after {
+  content: "";
+  width: 265px;
+  /* Remember the height, not just the width, otherwise the pseudo-element is invisible! */
+  height: 1px;
+  display: block;
+  background-color: #F66A17;
+}
+#p5-art-viewer #intro-container h2,
+#p5-art-viewer #intro-container p {
+  font-family: "Inter", sans-serif;
+  color: #000000;
+}
+#p5-art-viewer #intro-container p {
+  /* 14px is about 2 thirds of 20px,
+          the size of the p */
+  margin-top: 14px;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+#p5-art-viewer #activity-container {
+  background-color: #FFFFFF;
+  border: #000000 1px solid;
+  padding-block: 20px;
+  margin-bottom: 38px;
+  border-radius: 20px;
+  /* Interestingly, canvas is treated as an HTML element (not a class or an ID). */
+}
+#p5-art-viewer #activity-container #btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+#p5-art-viewer #activity-container #btn-container .btn,
+#p5-art-viewer #activity-container #btn-container .picker {
+  height: 48px;
+  width: 128px;
+  border: #000000 1px solid;
+}
+#p5-art-viewer #activity-container #btn-container .btn--small {
+  width: 64px;
+}
+#p5-art-viewer #activity-container #btn-container .btn {
+  padding: 8px;
+  background-color: #789598;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+#p5-art-viewer #activity-container #btn-container .btn:hover,
+#p5-art-viewer #activity-container #btn-container .btn:focus {
+  background-color: #82bdc3;
+}
+#p5-art-viewer #activity-container #btn-container .btn:active {
+  background-color: #6f7c7e;
+}
+#p5-art-viewer #activity-container canvas {
+  /* 1 line below: from P5 project initialisation */
+  display: block;
+  justify-self: center;
+  border-radius: 20px;
+}/*# sourceMappingURL=kaleidoscope.css.map */

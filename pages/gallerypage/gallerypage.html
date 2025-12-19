@@ -1,80 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>StreetArt Gallery</title>
-  <script src="scripts/gallery.js" defer></script>
-  <link rel="stylesheet" href="styles/gallery.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>StreetArt Gallery</title>
+    <script src="scripts/gallery.js" defer></script>
+    <link rel="stylesheet" href="styles/gallery.css" />
+  </head>
+  <body>
+    <div id="gallerySwitch">
+      <button onclick="loadGallery(1)">Gallery 1</button>
+      <button onclick="loadGallery(2)">Gallery 2</button>
+    </div>
 
-</head>
-<body>
+    <div id="gallerySlider">
+      <button onclick="prevImage()">&lt;</button>
+      <img id="gallerySliderImage" src="" />
+      <button onclick="nextImage()">&gt;</button>
+    </div>
 
-<div id="gallerySwitch">
-  <button onclick="loadGallery(1)">Gallery 1</button>
-  <button onclick="loadGallery(2)">Gallery 2</button>
-</div>
-
-<div id="gallerySlider">
-  <button onclick="prevImage()">&lt;</button>
-  <img id="gallerySliderImage" src="">
-  <button onclick="nextImage()">&gt;</button>
-</div>
-
-<div id="galleryGridSlider">
-<button onclick="prevGrid()">&lt;</button>
-<div id="galleryGrid"></div>
-<button onclick="nextGrid()">&gt;</button>
-</div>
+    <div id="galleryGridSlider">
+      <button onclick="prevGrid()">&lt;</button>
+      <div id="galleryGrid"></div>
+      <button onclick="nextGrid()">&gt;</button>
+    </div>
 
     <footer class="site-footer" role="contentinfo">
-        <div class="site-footer__inner">
-          <!-- Logo og adresse -->
-          <section class="site-footer__brand">
-            <img class="site-footer__logo" src="/pages/Footer/assets/Techcollege logo.png" alt="TechCollege logo">
-            <div>
-              <h3 class="site-footer__title">TechCollege</h3>
-              <address>
-                Øster Uttrup Vej 5<br>
-                9000 Aalborg<br>
-                Danmark
-              </address>
-            </div>
-          </section>
+      <div class="site-footer__inner">
+        <!-- Logo og adresse -->
+        <section class="site-footer__brand">
+          <img
+            class="site-footer__logo"
+            src="pages/Footer/assets/Techcollege logo.png"
+            alt="TechCollege logo"
+          />
+          <div>
+            <h3 class="site-footer__title">TechCollege</h3>
+            <address>
+              Øster Uttrup Vej 5<br />
+              9000 Aalborg<br />
+              Danmark
+            </address>
+          </div>
+        </section>
 
-          <!-- Teknologier -->
-          <section class="site-footer__tech">
-            <h3 class="site-footer__title">Teknologier benyttet</h3>
-            <ul aria-label="Liste over teknologier">
-              <li>HTML</li>
-              <li>SCSS</li>
-              <li>TypeScript</li>
-              <li>AR.js</li>
-              <li>p5.js</li>
-              <li>Geolocation API</li>
-            </ul>
-          </section>
+        <!-- Teknologier -->
+        <section class="site-footer__tech">
+          <h3 class="site-footer__title">Teknologier benyttet</h3>
+          <ul aria-label="Liste over teknologier">
+            <li>HTML</li>
+            <li>SCSS</li>
+            <li>TypeScript</li>
+            <li>AR.js</li>
+            <li>p5.js</li>
+            <li>Geolocation API</li>
+          </ul>
+        </section>
 
-          <!-- Kreditering og link -->
-          <section class="site-footer__credits">
-            <h3 class="site-footer__title">Kreditering</h3>
-            <p>Udviklet af TechStreetArt-holdet.</p>
-            <p>
-              <a href="https://techcollege.dk/uddannelser/webudvikler/" target="_blank" rel="noopener noreferrer">
-                Webudvikler-uddannelsen på TechCollege
-              </a>
-            </p>
-          </section>
-        </div>
+        <!-- Kreditering og link -->
+        <section class="site-footer__credits">
+          <h3 class="site-footer__title">Kreditering</h3>
+          <p>Udviklet af TechStreetArt-holdet.</p>
+          <p>
+            <a
+              href="https://techcollege.dk/uddannelser/webudvikler/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Webudvikler-uddannelsen på TechCollege
+            </a>
+          </p>
+        </section>
+      </div>
 
-        <!-- Bundlinje -->
-        <div class="site-footer__bottom">
-          <span>© <span id="footer-year"></span> TechStreetArt</span>
-          <span>All rights reserved.</span>
-        </div>
-      </footer>
-      <script>
-        // Dynamisk årstal i footer
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
-      </script>
-</body>
+      <!-- Bundlinje -->
+      <div class="site-footer__bottom">
+        <span>© <span id="footer-year"></span> TechStreetArt</span>
+        <span>All rights reserved.</span>
+      </div>
+    </footer>
+    <script>
+      // Dynamisk årstal i footer
+      document.getElementById('footer-year').textContent = new Date().getFullYear()
+    </script>
+  </body>
 </html>

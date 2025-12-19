@@ -31,7 +31,7 @@ Functions such as loadImage(), loadFont(), loadJSON(), and loadModel() are guara
 https://p5js.org/reference/p5/preload/ */
 function preload() {
     //Loading of default art to enhance (this is the art on spotlight, not the user's choice)
-    spotlightByMariePierreLessard = loadImage("https://i.postimg.cc/6qjf8zLz/Photo-15-12-2025-09-34-12-karolinelund-fullscreen.webp");
+    spotlightByMariePierreLessard = loadImage("https://i.postimg.cc/B6JTNRmD/Photo-15-12-2025-08-26-12-akkc-fullscreen.webp");
 
     /* "loadJSON()
     Loads a JSON file to create an Object. (...)

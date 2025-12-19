@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sedgwick+Ave&family=Syne:wght@400..800&display=swap%27");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #789598;
+  color: #000000;
+  font-family: "Syne", sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.header-main img {
+  width: 25%;
+  margin: auto;
+}
+
+h1 {
+  font-family: "Berkshire Swash", cursive;
+  color: #000000;
+}
+
+h2,
+h3 {
+  color: #000000;
+  font-family: "Syne", sans-serif;
+}
+
+header {
+  background-color: #789598;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+header h1 {
+  color: white;
+  font-size: 2.5rem;
+}
+
+.oversigt {
+  background: #789598;
+  gap: 1.5 rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.oversigt div {
+  display: flex;
+}
+
+.oversigt div figure {
+  background: white;
+}
+
+.oversigt div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background-color: inherit;
+}
+
+.oversigt footer a {
+  text-decoration: none;
+  color: #000000;
+  margin-bottom: 2rem 0;
+  display: block;
+  margin: 60px 0 60px;
+}
+
+.oversigt a {
+  display: block;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.mokey {
+  background-color: #000000;
+  text-align: center;
+}
+
+.mokey footer a {
+  color: white;
+}
+
+.pictures {
+  background: #000000;
+  gap: 1.5rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.pictures div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pictures > figcaption {
+  text-align: center;
+}
+
+.pictures figcaption a {
+  color: white;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 0.95rem;
+  color: black;
+}/*# sourceMappingURL=main.css.map */

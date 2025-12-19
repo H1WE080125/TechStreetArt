@@ -1,0 +1,135 @@
+// Farver til mainpage
+$PrimaryColor: #789598;
+$SecondaryColor: #000000;
+$AccentColor: #f66a17;
+$TertiaryColor: #f66a17;
+
+// Front
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Sedgwick+Ave&family=Syne:wght@400..800&display=swap%27");
+
+$font-heading: "Berkshire Swash", cursive;
+$font-body: "Syne", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $PrimaryColor;
+  color: $SecondaryColor;
+  font-family: $font-body;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.header-main img {
+  width: 25%;
+  margin: auto;
+}
+
+h1 {
+  font-family: $font-heading;
+  color: $SecondaryColor;
+}
+
+h2,
+h3 {
+  color: $SecondaryColor;
+  font-family: $font-body;
+}
+
+// Header styles
+header {
+  background-color: $PrimaryColor;
+  padding: 2rem 1rem;
+  text-align: center;
+
+  h1 {
+    color: white;
+    font-size: 2.5rem;
+  }
+}
+
+.oversigt {
+  background: $PrimaryColor;
+  gap: 1.5 rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+.oversigt div {
+  display: flex;
+}
+
+.oversigt div figure {
+  background: white;
+}
+.oversigt div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  background-color: inherit;
+}
+
+.oversigt footer a {
+  text-decoration: none;
+  color: $SecondaryColor;
+  margin-bottom: 2rem 0;
+  display: block;
+  margin: 60px 0 60px;
+}
+
+.oversigt a {
+  display: block;
+}
+
+.links a {
+  text-decoration: none;
+  color: $SecondaryColor;
+}
+
+.mokey {
+  background-color: $SecondaryColor;
+  text-align: center;
+}
+
+.mokey footer a {
+  color: white;
+}
+
+.pictures {
+  background: $SecondaryColor;
+  gap: 1.5rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.pictures div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.pictures > figcaption {
+  text-align: center;
+}
+
+.pictures figcaption a {
+  color: white;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 0.95rem;
+  color: darken($SecondaryColor, 20%);
+}

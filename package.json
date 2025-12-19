@@ -1,0 +1,11 @@
+{
+  "name": "techstreetart",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.77.0"
+  },
+  "scripts": {
+    "build:css": "sass pages/gallerypage/styles/gallerypage.scss pages/gallerypage/styles/gallerypage.css --no-source-map",
+    "watch:css": "sass --watch pages/gallerypage/styles/gallerypage.scss:pages/gallerypage/styles/gallerypage.css"
+  }
+}

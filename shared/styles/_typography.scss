@@ -1,0 +1,28 @@
+// fonts and typography settings
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+// Font sizes
+$font-size-hero-heading: 2.375rem; // 38px - Hero section main text
+$font-size-hero-button: 2.375rem; // 38px - Hero button text
+$font-size-footer-text: 1rem; // 16px - Footer text
+$font-size-body: 1rem; // 16px - Default body text
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+
+// Font families
+$font-family-primary: 'Inter', sans-serif;
+
+// Line heights
+$line-height-normal: normal;
+$line-height-body: 1.5;
+
+// Letter spacing
+$letter-spacing-normal: normal;
+
+// Text alignment
+$text-align-center: center;
+$text-align-left: left;

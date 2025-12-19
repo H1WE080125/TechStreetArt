@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <!-- Meta og CSS for layout og responsivitet -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Street Art Gallery</title>
+  <link rel="stylesheet" href="./styles/gallerypage.css"/>
+</head>
+<body>
+  <!-- Fast header med brand og navigation -->
+  <header class="site-header">
+    <!-- Logo/brand -->
+    <div class="brand">
+      <img src="../../assets/images/logo/streetAR.svg" alt="StreetArt logo" class="logo"/>
+    </div>
+    <!-- Primær navigation (vises på desktop via CSS) -->
+    <nav class="nav">
+      <a href="../../index.html">WELCOME</a>
+      <a href="../../pages/about/index.html">OM OS</a>
+      <a class="active" href="./gallerypage.html">GALLERI</a>
+      <a href="../../pages/locations/index.html">LOKATIONER</a>
+      <a href="../../pages/live-art/index.html">LIVE-ART</a>
+    </nav>
+    <!-- Burger-menu til mobil -->
+    <button class="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- App-container hvor galleriet mountes -->
+  <main id="gallery-app" class="gallery-page"></main>
+
+  <!-- Simpel footer med kontakt og links -->
+  <footer class="site-footer">
+    <div class="footer-cols">
+      <div>
+        <h4>Om TECHCOLLEGE</h4>
+        <p>CVR-nummer: 13084719</p>
+        <p>EAN-nummer: 9128 000 12873</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#">Uddannelsesoversigt</a></li>
+          <li><a href="#">Kompetencevurdering</a></li>
+          <li><a href="#">Optagelsesprøve</a></li>
+          <li><a href="#">Links for elever</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="#">Om os</a></li>
+          <li><a href="#">Hjælp</a></li>
+          <li><a href="#">Kontakt os</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>TECHCOLLEGE</span>
+      <span>Telefon 7250 1000</span>
+      <span>E-mail: mail@techcollege.dk</span>
+    </div>
+  </footer>
+
+  <!-- Loader galleriets JavaScript efter DOM -->
+  <script src="./scripts/gallery.js" defer></script>
+</body>
+</html>

@@ -78,6 +78,40 @@ body {
   }
 }
 
+/* Title bar: heading + filter buttons */
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.gallery-filter {
+  display: inline-flex;
+  gap: 8px;
+
+  .filter-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-text;
+    background: rgba(0,0,0,0.35);
+    border: 2px solid $color-border-orange;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 120ms ease, background 120ms ease;
+
+    &:hover { transform: translateY(-1px); }
+
+    &.active {
+      background: $color-accent;
+      color: #000;
+      border-color: $color-accent;
+    }
+  }
+}
+
 /* Page title */
 // Stor, tydelig titel med dekorativ linje
 .page-title {
@@ -154,7 +188,20 @@ body {
       filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
     }
 
-    &-left { left: 12px; }  // Placér venstre pil
+    &-left {
+      left: 12px; // Placér venstre pil
+
+      // Rotate the left arrow image
+      img {
+        transform: rotate(180deg);
+      }
+
+      // Keep rotation when hovering the left arrow while scaling
+      &:hover img {
+        transform: rotate(180deg) scale(1.05);
+      }
+    }
+
     &-right { right: 12px; } // Placér højre pil
 
     &:hover img { transform: scale(1.05); } // Subtil hover-effekt
@@ -221,6 +268,40 @@ body {
         border-radius: 18px;
         box-shadow: 0 8px 24px rgba(0,0,0,0.25);
         outline: 1px solid rgba(255,255,255,0.12);
+        position: relative; // så absolute pile kan placeres ift. grid
+
+        // Grid-nav pile (samme look som viewer-pile)
+        .arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 52px;
+          height: 52px;
+          border: 0;
+          background: transparent;
+          padding: 0;
+          cursor: pointer;
+          z-index: 2;
+
+          img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+          }
+
+          &-left {
+            left: -20px; // lidt udenfor venstre kant
+            img { transform: rotate(180deg); }
+            &:hover img { transform: rotate(180deg) scale(1.05); }
+          }
+
+          &-right {
+            right: -20px; // lidt udenfor højre kant
+          }
+
+          &:hover img { transform: scale(1.05); }
+        }
       }
 
       &.thumbs-grid {

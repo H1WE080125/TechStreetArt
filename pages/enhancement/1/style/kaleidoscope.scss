@@ -29,8 +29,8 @@ $ParagraphFont: 'Inter', sans-serif; // for paragraphs
 * {
     /* 2 lines below: from P5 project initialisation 
         (basic CSS reset) */
-        margin: 0;
-        padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -52,19 +52,73 @@ body {
     justify-content: center;
     flex-direction: column;
 
+    /* There are 2 button containers. */
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+
+        .btn,
+        .picker {
+            height: 48px;
+            width: 128px;
+            border: $secondaryColor 1px solid;
+        }
+
+        .btn {
+            padding: 8px;
+            background-color: $primaryColor;
+            color: $secondaryColor;
+            font-weight: 700;
+            font-family: $HeadingTwoFont;
+            text-align: center;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: #82bdc3;
+        }
+
+        .btn:active {
+            background-color: #6f7c7e;
+        }
+
+        .btn--small {
+            width: 64px;
+            /* This is to push the canvas away from the buttons. */
+            margin-bottom: 16px;
+        }
+
+        .btn--big {
+            width: 192px;
+            background-color: $accentColor;
+            margin-bottom: $ParagraphSize;
+        }
+
+        .btn--big:hover,
+        .btn--big:focus {
+            background-color: #fb7e35;
+        }
+
+        .btn--big:active {
+            background-color: #e75500;
+        }
+    }
+
     #intro-container {
         justify-content: left;
+
         /* In P5 textual elements, the margins don't overlap, which creates a lot of space between each line of text.
         It's like the margins are padding in grid rows. */
         h2 {
-        /* 26px is about 2 thirds of 38px,
-                    the size of the h2 */
+            /* 26px is about 2 thirds of 38px,
+            the size of the h2 */
             margin-top: 26px;
             margin-bottom: 0;
             font-size: $HeadingSizeTwo;
             font-weight: $HeadingTwoBold;
         }
-    
+
         h2::after {
             content: "";
             width: 265px; //A bit longer than the h2
@@ -73,63 +127,30 @@ body {
             display: block;
             background-color: $accentColor;
         }
-            
+
         h2,
         p {
-            font-family: $HeadingTwoFont; 
+            font-family: $HeadingTwoFont;
             color: $secondaryColor;
         }
+
         p {
-            /* 14px is about 2 thirds of 20px,
-                    the size of the p */
-            margin-top: 14px;
+            margin-top: $ParagraphSize;
             margin-bottom: $ParagraphSize;
             font-size: $ParagraphSize;
         }
+
+        .first-of-type-p {
+            /* 14px is about 2 thirds of 20px, the size of the p */
+            margin-top: 14px;
+        }
     }
-    
+
     #activity-container {
         background-color: $tertiaryColor;
         border: $secondaryColor 1px solid;
         padding-block: $ParagraphSize;
-        margin-bottom: $HeadingSizeTwo;
         border-radius: 20px;
-
-        #btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            padding-bottom: 16px;
-            
-            .btn,
-            .picker {
-                height: 48px;
-                width: 128px;
-                border: $secondaryColor 1px solid;
-            }
-            
-            .btn--small {
-                width: 64px;
-            }
-            
-            .btn {
-                padding: 8px;
-                background-color: $primaryColor;
-                color: $secondaryColor;
-                font-weight: 700;
-                font-family: $HeadingTwoFont;
-                text-align: center;                    
-            }
-
-            .btn:hover,
-            .btn:focus {
-                background-color: #82bdc3;
-            }
-
-            .btn:active {
-                background-color: #6f7c7e;
-            }
-        }
 
         /* Interestingly, canvas is treated as an HTML element (not a class or an ID). */
         canvas {
@@ -138,5 +159,11 @@ body {
             justify-self: center;
             border-radius: 20px;
         }
+    }
+
+    small {
+        font-size: 14px;
+        margin-top: $ParagraphSize;
+        margin-bottom: $HeadingSizeTwo;
     }
 }

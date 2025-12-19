@@ -39,6 +39,50 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  /* There are 2 button containers. */
+}
+#p5-art-viewer .btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+#p5-art-viewer .btn-container .btn,
+#p5-art-viewer .btn-container .picker {
+  height: 48px;
+  width: 128px;
+  border: #000000 1px solid;
+}
+#p5-art-viewer .btn-container .btn {
+  padding: 8px;
+  background-color: #789598;
+  color: #000000;
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+}
+#p5-art-viewer .btn-container .btn:hover,
+#p5-art-viewer .btn-container .btn:focus {
+  background-color: #82bdc3;
+}
+#p5-art-viewer .btn-container .btn:active {
+  background-color: #6f7c7e;
+}
+#p5-art-viewer .btn-container .btn--small {
+  width: 64px;
+  /* This is to push the canvas away from the buttons. */
+  margin-bottom: 16px;
+}
+#p5-art-viewer .btn-container .btn--big {
+  width: 192px;
+  background-color: #F66A17;
+  margin-bottom: 20px;
+}
+#p5-art-viewer .btn-container .btn--big:hover,
+#p5-art-viewer .btn-container .btn--big:focus {
+  background-color: #fb7e35;
+}
+#p5-art-viewer .btn-container .btn--big:active {
+  background-color: #e75500;
 }
 #p5-art-viewer #intro-container {
   justify-content: left;
@@ -47,7 +91,7 @@ body {
 }
 #p5-art-viewer #intro-container h2 {
   /* 26px is about 2 thirds of 38px,
-              the size of the h2 */
+  the size of the h2 */
   margin-top: 26px;
   margin-bottom: 0;
   font-size: 38px;
@@ -67,53 +111,29 @@ body {
   color: #000000;
 }
 #p5-art-viewer #intro-container p {
-  /* 14px is about 2 thirds of 20px,
-          the size of the p */
-  margin-top: 14px;
+  margin-top: 20px;
   margin-bottom: 20px;
   font-size: 20px;
+}
+#p5-art-viewer #intro-container .first-of-type-p {
+  /* 14px is about 2 thirds of 20px, the size of the p */
+  margin-top: 14px;
 }
 #p5-art-viewer #activity-container {
   background-color: #FFFFFF;
   border: #000000 1px solid;
   padding-block: 20px;
-  margin-bottom: 38px;
   border-radius: 20px;
   /* Interestingly, canvas is treated as an HTML element (not a class or an ID). */
-}
-#p5-art-viewer #activity-container #btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding-bottom: 16px;
-}
-#p5-art-viewer #activity-container #btn-container .btn,
-#p5-art-viewer #activity-container #btn-container .picker {
-  height: 48px;
-  width: 128px;
-  border: #000000 1px solid;
-}
-#p5-art-viewer #activity-container #btn-container .btn--small {
-  width: 64px;
-}
-#p5-art-viewer #activity-container #btn-container .btn {
-  padding: 8px;
-  background-color: #789598;
-  color: #000000;
-  font-weight: 700;
-  font-family: "Inter", sans-serif;
-  text-align: center;
-}
-#p5-art-viewer #activity-container #btn-container .btn:hover,
-#p5-art-viewer #activity-container #btn-container .btn:focus {
-  background-color: #82bdc3;
-}
-#p5-art-viewer #activity-container #btn-container .btn:active {
-  background-color: #6f7c7e;
 }
 #p5-art-viewer #activity-container canvas {
   /* 1 line below: from P5 project initialisation */
   display: block;
   justify-self: center;
   border-radius: 20px;
+}
+#p5-art-viewer small {
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 38px;
 }/*# sourceMappingURL=kaleidoscope.css.map */

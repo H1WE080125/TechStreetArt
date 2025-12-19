@@ -1,70 +1,86 @@
 <!DOCTYPE html>
-<html lang="da">
-<head>
-  <!-- Meta og CSS for layout og responsivitet -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Street Art Gallery</title>
-  <link rel="stylesheet" href="./styles/gallerypage.css"/>
-</head>
-<body>
-  <!-- Fast header med brand og navigation -->
-  <header class="site-header">
-    <!-- Logo/brand -->
-    <div class="brand">
-      <img src="../../assets/images/logo/streetAR.svg" alt="StreetArt logo" class="logo"/>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>StreetArt Gallery</title>
+    <script src="scripts/gallery.js" defer></script>
+    <link rel="stylesheet" href="styles/gallery.css" />
+  </head>
+  <body>
+    <div id="gallerySwitch">
+      <button onclick="loadGallery(1)">Gallery 1</button>
+      <button onclick="loadGallery(2)">Gallery 2</button>
     </div>
-    <!-- Primær navigation (vises på desktop via CSS) -->
-    <nav class="nav">
-      <a href="../../index.html">WELCOME</a>
-      <a href="../../pages/about/index.html">OM OS</a>
-      <a class="active" href="./gallerypage.html">GALLERI</a>
-      <a href="../../pages/locations/index.html">LOKATIONER</a>
-      <a href="../../pages/live-art/index.html">LIVE-ART</a>
-    </nav>
-    <!-- Burger-menu til mobil -->
-    <button class="burger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
 
-  <!-- App-container hvor galleriet mountes -->
-  <main id="gallery-app" class="gallery-page"></main>
-
-  <!-- Simpel footer med kontakt og links -->
-  <footer class="site-footer">
-    <div class="footer-cols">
-      <div>
-        <h4>Om TECHCOLLEGE</h4>
-        <p>CVR-nummer: 13084719</p>
-        <p>EAN-nummer: 9128 000 12873</p>
-      </div>
-      <div>
-        <h4>Links</h4>
-        <ul>
-          <li><a href="#">Uddannelsesoversigt</a></li>
-          <li><a href="#">Kompetencevurdering</a></li>
-          <li><a href="#">Optagelsesprøve</a></li>
-          <li><a href="#">Links for elever</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Kontakt</h4>
-        <ul>
-          <li><a href="#">Om os</a></li>
-          <li><a href="#">Hjælp</a></li>
-          <li><a href="#">Kontakt os</a></li>
-        </ul>
-      </div>
+    <div id="gallerySlider">
+      <button onclick="prevImage()">&lt;</button>
+      <img id="gallerySliderImage" src="" />
+      <button onclick="nextImage()">&gt;</button>
     </div>
-    <div class="footer-bar">
-      <span>TECHCOLLEGE</span>
-      <span>Telefon 7250 1000</span>
-      <span>E-mail: mail@techcollege.dk</span>
-    </div>
-  </footer>
 
-  <!-- Loader galleriets JavaScript efter DOM -->
-  <script src="./scripts/gallery.js" defer></script>
-</body>
+    <div id="galleryGridSlider">
+      <button onclick="prevGrid()">&lt;</button>
+      <div id="galleryGrid"></div>
+      <button onclick="nextGrid()">&gt;</button>
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="site-footer__inner">
+        <!-- Logo og adresse -->
+        <section class="site-footer__brand">
+          <img
+            class="site-footer__logo"
+            src="pages/Footer/assets/Techcollege logo.png"
+            alt="TechCollege logo"
+          />
+          <div>
+            <h3 class="site-footer__title">TechCollege</h3>
+            <address>
+              Øster Uttrup Vej 5<br />
+              9000 Aalborg<br />
+              Danmark
+            </address>
+          </div>
+        </section>
+
+        <!-- Teknologier -->
+        <section class="site-footer__tech">
+          <h3 class="site-footer__title">Teknologier benyttet</h3>
+          <ul aria-label="Liste over teknologier">
+            <li>HTML</li>
+            <li>SCSS</li>
+            <li>TypeScript</li>
+            <li>AR.js</li>
+            <li>p5.js</li>
+            <li>Geolocation API</li>
+          </ul>
+        </section>
+
+        <!-- Kreditering og link -->
+        <section class="site-footer__credits">
+          <h3 class="site-footer__title">Kreditering</h3>
+          <p>Udviklet af TechStreetArt-holdet.</p>
+          <p>
+            <a
+              href="https://techcollege.dk/uddannelser/webudvikler/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Webudvikler-uddannelsen på TechCollege
+            </a>
+          </p>
+        </section>
+      </div>
+
+      <!-- Bundlinje -->
+      <div class="site-footer__bottom">
+        <span>© <span id="footer-year"></span> TechStreetArt</span>
+        <span>All rights reserved.</span>
+      </div>
+    </footer>
+    <script>
+      // Dynamisk årstal i footer
+      document.getElementById('footer-year').textContent = new Date().getFullYear()
+    </script>
+  </body>
 </html>
